@@ -1,0 +1,13 @@
+//環境準備
+//インストールが必要なもの
+Node.js (v8.1.2 or greater)
+Npm (v5.0.3 or greater) 
+Truffle Framework (v3.2.5 or greater) 
+Testrpc (v3.0.5 or greater)
+Solidity Compiler(v0.4.11 or greater)
+
+//ターミナルからのインストール
+npm install -g truffle
+npm install -g ethereumjs-testrpc
+npm install -g create-react-app
+npm install -g solc // OPTION 

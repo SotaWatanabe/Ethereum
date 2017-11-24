@@ -1,0 +1,5 @@
+$ mkdir greeterApp # フォルダーの作成
+$ cd greeterApp # 作成フォルダーに移動
+$ mkdir greeter # truffle framework と smartcontrac用にフォルダーを作成
+$ cd greeter # 作成フォルダーに移動
+$ truffle unbox metacoin # initialize
