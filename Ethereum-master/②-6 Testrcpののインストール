@@ -1,0 +1,51 @@
+#https://github.com/ethereumjs/testrpc
+$ npm install -g ethereumjs-testrpc
+
+
+#補足　2017/10/25
+#コンソール上でtestrpcを叩くと以下が返ってくる。
+EthereumJS TestRPC v4.1.3 (ganache-core: 1.1.3)
+
+Available Accounts
+==================
+(0) 0x0e5af0b29f4e6c82d16f28c1cc4d438d8f9da7f5
+(1) 0x88c15f9dc5025c01950592be5d0c110fd3622312
+(2) 0x3f5d558fa82f36d3c4b04e70ca426197ee17f24a
+(3) 0xa2fa17a34e35c5f514f11596a4a22e160a4c576d
+(4) 0xf4773ec42aa7f00dab548b93c16b6cdc5f7457eb
+(5) 0x56b983954b5a98711b3d6254edb8672f09d26241
+(6) 0xd61ed926600881895884c8ed3331523785b7c852
+(7) 0x4b31b465f3802767f355205676c1cf7eb71ce4af
+(8) 0x172218a215453344099257cbda472dcc149a98e0
+(9) 0xa541487899db1e11e57400572a41a84918b938f9
+
+Private Keys
+==================
+(0) dc0707f31e63dd2853dbe2b0aaa2594dceb27c8526d4148c8b99e43e73833179
+(1) c066db08ac5c1a0e438007564956c1de4ed3ead56b7be3d937d49572d9270e52
+(2) d2ffb388628a4537f637a155128f52a43e50ddefb76d28ca6787d213e76d1c51
+(3) 2268bca1e88233a2f94b0e10ffa4c34aaf8ab09048827773aa2421c3eefea43a
+(4) f330fae12b22944dab7c95d9a4263ae31c368b5fc27cda1dbb8c3bac6e709203
+(5) a2048ce4a40c7db0937de6807239c24a069dba3d59fc80379869ca671c8939e7
+(6) 3ec72ef63d29d9adc1ec99c36edf858586887189994022bde83c9a3b24e385aa
+(7) 220f173174648cb5f8abe9c5ab9b871feb9dc25b6c097151349c5bade66a5cab
+(8) d94216fd93f601d7603050e462487469ac2a5d651d5d61c4e6378bf1e67e73e0
+(9) fa1296a4a3dafed1ed18c92a4e56239f9ca3240aa5ef8ef8bc75c333ed610143
+
+HD Wallet
+==================
+Mnemonic:      private army desert exile exist grain sadness abandon floor gap position dice
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Listening on localhost:8545
+
+#localhostが今回は8545と指定されたので、別のターミナルを開き、以下を実行する。
+$ geth attach http://localhost:8545
+#実行後、1つ目のターミナルに以下のような実行可能なコマンドが出て来る。
+rpc_modules
+web3_clientVersion
+eth_coinbase
+eth_blockNumber
+eth_blockNumber
+eth_getBlockByNumber
+rpc_modules

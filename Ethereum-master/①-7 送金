@@ -1,0 +1,26 @@
+#アカウントを2つ作成する。
+> personal.newAccount("testuser1")
+> personal.newAccount("testuser2")
+
+#仮想空間においては、user1の初期値は0etherなので、user1でマイニングをしておく必要がある。
+
+#トランザクションに先立って送金元のアカウントのアンロック。
+#Passwordはアカウント生成時に作成
+> personal.unlockAccount(eth.accounts[0])
+
+#トランザクションの発行 1。(1etherをuser1→user2へ送金）
+> eth.sendTransaction({from:"0x802ac6dc7aa423fa9cc3e0b22e607cb4d4b099aa",to:"0xf0369df8268906ce628ef9c3b78d8f6ae7276e76", value:web3.toWei(1,"ether")})
+#testuser1 = "0x802ac6dc7aa423fa9cc3e0b22e607cb4d4b099aa"
+#testuser2 = "0xf0369df8268906ce628ef9c3b78d8f6ae7276e76"
+#eth.sendTransaction({ from: 送金元アドレス, to: 送金先アドレス, value: 送金額 (wei) })
+
+#トランザクションの発行 2。(1etherをuser1→user2へ送金）
+> eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[1],value:web3.toWei(1,"ether")})
+
+#トランザクションのIDが発行される。"0xbfc43e312af9740f15cd6705c131bb1982e2733f938149e5a3e8318d55268e4b"
+
+#未確定トランザクションの確認
+> eth.pendingTransactions
+
+#送金の確認 (1000000000000000000＝1etherと表示される。）
+> eth.getBalance(eth.accounts[1])

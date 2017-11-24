@@ -1,0 +1,12 @@
+#アカウントの生成 ""内部は任意のパスフレーズ。
+$ personal.newAccount("testuser1")
+
+#実行結果 ： 0xb42eeedb2580e3cb755ed870cdda1105bd903036
+#上記の数値がアカウントのアドレス。送金などはこのアドレスで行う。
+
+#アカウントの確認。
+$ eth.accounts
+#実行結果 : ["0xb42eeedb2580e3cb755ed870cdda1105bd903036"]
+
+#eth.accounts[0]は特別なアカウント（通称：Coinbase)、eth.coinbaseで確認可能。
+#ブロックをマイニングしたときの報酬 (Ether) は、このCoinbaseアカウントが受け取る。

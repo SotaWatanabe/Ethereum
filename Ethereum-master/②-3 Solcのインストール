@@ -1,0 +1,11 @@
+#solcの有無を確認するために、gethのコンソール上で以下のコマンドを入力する。
+> eth.getCompilers()
+#solcが入っていると結果に、["solidity"]と返っている。
+
+#solcのインストール
+#gethのコンソールから一回抜けて、コンソール上で以下のコマンドを叩く。
+$ git clone –recursive https://github.com/ethereum/solidity.git
+$ cd solidity
+$ mkdir build
+$ cd build
+$ cmake .. && make

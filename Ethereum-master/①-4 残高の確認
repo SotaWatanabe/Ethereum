@@ -1,0 +1,3 @@
+#残高を確認する
+$ eth.getBalance(eth.accounts[#])
+#eth.accountの部分に直接アドレスを入力しても確認は可能

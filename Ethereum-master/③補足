@@ -1,0 +1,11 @@
+#MISTを使って立ち上げる時
+#フォルダchaindataとファイルgenesis.jsonが有る環境下
+$ geth --datadir=./chaindata init genesis.json
+
+$ geth --datadir=./chaindata/
+
+#別のターミナルを開き下記のコマンドを実行
+$ open -a /applications/mist.app/contents/macos/mist --args --rpc /Users/watanabesouta/desktop/eth_testnet/empty/chaindata/geth.ipc
+$ geth attach /Users/watanabesouta/desktop/eth_testnet/empty/chaindata/geth.ipc
+#/////はgeth.ipcへのパス
+#JSのコンソールが開く。

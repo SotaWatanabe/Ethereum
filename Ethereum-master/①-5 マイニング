@@ -1,0 +1,8 @@
+#マイニング開始
+> miner.start()
+
+#マイニングの終了
+> miner.stop()
+
+#マイニングで獲得した残高の確認
+> eth.getBalance(eth.accounts[#])

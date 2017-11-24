@@ -1,0 +1,21 @@
+#Hello World
+----------------------------------------------
+pragma solidity ^0.4.8;
+
+contract HelloWorld{
+  //状態宣言
+  string public greeting;
+  //コンストラクタ
+  function HelloWorld(string _greeting){
+    greeting = _greeting;
+  }
+  //メソッドの宣言
+  function setGreeding(string _greeting){
+    greeting = _greeting;
+  }
+  //ブロックチェーンで保持されているデータの変更を伴わない場合はconstantをつける。
+  function say()constant returns(string){
+    return "Hello World;
+  }
+}
+----------------------------------------------

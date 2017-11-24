@@ -1,0 +1,68 @@
+tarminal1
+$ geth --datadir=./mydatadir/ --rpc
+
+tarminal2
+$ truffle migrate
+-------------------------------------------------
+Using network 'development'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... undefined
+Error encountered, bailing. Network state unknown. Review successful transactions manually.
+Error: authentication needed: password or unlock
+    at Object.InvalidResponse (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:37312:16)
+    at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:220420:36
+    at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:72910:11
+    at /usr/local/lib/node_modules/truffle/build/cli.bundled.js:204149:9
+    at XMLHttpRequest.request.onreadystatechange (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:205574:13)
+    at XMLHttpRequestEventTarget.dispatchEvent (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73069:18)
+    at XMLHttpRequest._setReadyState (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73359:12)
+    at XMLHttpRequest._onHttpResponseEnd (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73514:12)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/truffle/build/cli.bundled.js:73474:24)
+    at emitNone (events.js:110:20)
+------------------------------------------------
+    
+terminal3
+$ open -a /applications/mist.app/contents/macos/mist --args --rpc /Users/watanabesouta/desktop/eth_testnet/empty/mydatadir/geth.ipc
+$ geth attach /Users/watanabesouta/desktop/eth_testnet/empty/mydatadir/geth.ipc
+> personal.unlockAccount(eth.accounts[0]);
+
+terminal2
+$ truffle migrate
+#このときにminingをする。miningの際に、miner.start(#);の#に注意。
+$ npm run dev
+-----------------------------------------------
+> truffle-init-webpack@0.0.2 dev /Users/watanabesouta/Desktop/eth_testnet/empty
+> webpack-dev-server
+
+Project is running at http://localhost:8080/
+webpack output is served from /
+Hash: f27a16d30e5d950fffed
+Version: webpack 2.7.0
+Time: 3784ms
+     Asset       Size  Chunks                    Chunk Names
+    app.js    1.36 MB       0  [emitted]  [big]  main
+index.html  925 bytes          [emitted]
+chunk    {0} app.js (main) 1.34 MB [entry] [rendered]
+   [50] ./~/web3/index.js 193 bytes {0} [built]
+   [54] ./app/javascripts/app.js 3.64 kB {0} [built]
+   [55] (webpack)-dev-server/client?http://localhost:8080 7.95 kB {0} [built]
+   [56] ./build/contracts/MetaCoin.json 2.75 kB {0} [built]
+   [94] ./~/loglevel/lib/loglevel.js 7.74 kB {0} [built]
+  [102] ./~/strip-ansi/index.js 161 bytes {0} [built]
+  [104] ./~/style-loader/addStyles.js 6.91 kB {0} [built]
+  [105] ./app/stylesheets/app.css 905 bytes {0} [built]
+  [112] ./~/truffle-contract/index.js 2.64 kB {0} [built]
+  [146] ./~/url/url.js 23.3 kB {0} [built]
+  [181] (webpack)-dev-server/client/overlay.js 3.73 kB {0} [built]
+  [182] (webpack)-dev-server/client/socket.js 1.05 kB {0} [built]
+  [183] (webpack)/hot nonrecursive ^\.\/log$ 160 bytes {0} [built]
+  [184] (webpack)/hot/emitter.js 77 bytes {0} [built]
+  [186] multi (webpack)-dev-server/client?http://localhost:8080 ./app/javascripts/app.js 40 bytes {0} [built]
+     + 172 hidden modules
+webpack: Compiled successfully.
+-----------------------------------------------
+
+terminal4
+$ geth --datadir=./mydatadir/ --rpc --rpccorsdomain "http://localhost:8080"

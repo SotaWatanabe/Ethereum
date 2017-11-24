@@ -1,0 +1,30 @@
+#Genesisファイルを作成する。
+$ mkdir eth_testnet
+$ cd eth_testnet
+
+#genesisブロックの作成。
+$ vim genesis.json
+#iで編集モード、esqで編集モードを抜けて、:wqで保存+終了。
+--------------------------------------------------------------------------------------
+#上記ディレクトリ内にjsonファイルを作成する。
+#json記載
+
+{
+"nonce": "0x0000000000000042",
+"mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+"difficulty": "0x400",
+"alloc": {},
+"coinbase": "0x3333333333333333333333333333333333333333",
+"timestamp": "0x0",
+"parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+"extraData": "0x",
+"gasLimit": "0x8000000",
+"config": {}
+}
+--------------------------------------------------------------------------------------
+
+#jsonファイルの中身が違うと以下のようなエラーがでる。
+Fatal: invalid genesis file: json: cannot unmarshal hex string of odd length into Go struct field Genesis.extraData of type hexutil.Bytes
+
+#gethを起動。***は各自で入力。
+geth --networkid 10 --nodiscover --maxpeers 0 --datadir /Users/***/eth_testnet console 2>> /Users/***/eth_testnet/geth.log

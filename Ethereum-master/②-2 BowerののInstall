@@ -1,0 +1,9 @@
+#Install
+$ npm install bower -g
+
+#check version
+$ bower -v
+
+#update
+$ npm update -g bower
+
