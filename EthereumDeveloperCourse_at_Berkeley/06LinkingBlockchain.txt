@@ -1,0 +1,26 @@
+ Inside /greeterui/ open up /greeterui/package.json . Add "web3": "^0.18.2" in the dependencies */
+
+{
+  "name": "greeterui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "web3": "^0.18.2",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+
+This adds the Web3 Javascript Ethereum API to our dependencies so we can communicate with our blockchain through RPC calls.
+
+new window and navigate to /greeterApp/greeterui/
+$ npm install
+$ npm start
+Starting the development server...

@@ -1,0 +1,3 @@
+//create a new front end with create-react-app
+//Back out to /greeterApp/
+$ create-react-app greeterui
