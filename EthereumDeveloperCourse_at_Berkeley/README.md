@@ -1,3 +1,3 @@
 # Ethereum
 <h1>参考書：ブロックチェーンの仕組みと理論<h1>
-<img src="https://images-na.ssl-images-amazon.com/images/I/51FbaaoyOZL._SX384_BO1,204,203,200_.jpg">
+<img src="https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://www.filepicker.io/api/file/7fT6AnBFQu6R5gf1UobT">
