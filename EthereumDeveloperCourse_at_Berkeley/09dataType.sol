@@ -64,5 +64,15 @@ c.amount = 5; //set new value
 
 //Enums
 enum State {Created, Locked, Inactive};
-State public state; //declare variable from enum
-state = State.Created; 
+State public state; //enumから変数の宣言
+//enumはintへの変更も可能
+state = State.Created;
+
+//operator
+//exponential
+**
+//or
+^
+//bitwise negation
+~
+ 
