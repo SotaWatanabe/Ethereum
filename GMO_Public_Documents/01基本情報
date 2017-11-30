@@ -1,0 +1,94 @@
+参考
+https://guide.blockchain.z.com/ja/docs/blockchain/
+
+gethのインストール
+https://www.ethereum.org/cli
+
+デプロイノードの準備
+デプロイノードでは、トランザクションを発行してアプリケーションをデプロイしたり、ブロックの状態を確認できる。
+
+①VirtualBox上にUbuntu 16.04環境を用意してDeployノード環境を構築する。
+②DeployノードにParityをインストールし、一つのノードとして接続した上でデプロイ処理を行う。
+
+構築手順
+①Ubuntu16.04の準備
+virtualboxとvargrantのインストール
+$ brew update
+$ brew install Caskroom/cask/virtualbox Caskroom/cask/vagrant
+インストールされているかを確認
+$ vagrant -v
+$ virtualbox
+Ubunetu16.04をVirtualBox環境に設定してSSHログインできるようにする。
+$ vagrant init bento/ubuntu-16.04
+$ vagrant up --provider virtualbox
+$ vagrant ssh
+
+*vagrantの使いかた
+https://qiita.com/oreo3@github/items/4054a4120ccc249676d9
+
+*初期状態のパスとユーザー名
+ユーザ名 : vagrant
+パスフレーズ : vagrant
+
+②DeployノードにParityをインストールし、一つのノードとして接続した上でデプロイ処理を行う。
+$ sudo su -
+root@vagrant:~# apt-get update
+root@vagrant:~# apt-get install openssl libssl-dev libudev-dev
+root@vagrant:~# curl https://sh.rustup.rs -sSf | sh
+Parityのインストール
+root@vagrant:~# bash <(curl https://get.parity.io -Lk)
+-----------------------------------------------------------------
+Welcome to Rust!
+
+This will download and install the official compiler for the Rust programming
+language, and its package manager, Cargo.
+
+It will add the cargo, rustc, rustup and other commands to Cargo's bin
+directory, located at:
+
+  /root/.cargo/bin
+
+This path will then be added to your PATH environment variable by modifying the
+profile file located at:
+
+  /root/.profile
+
+You can uninstall at any time with rustup self uninstall and these changes will
+be reverted.
+
+Current installation options:
+
+   default host triple: x86_64-unknown-linux-gnu
+     default toolchain: stable
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+1
+
+Rust is installed now. Great!
+
+To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
+environment variable. Next time you log in this will be done automatically.
+
+To configure your current shell run source $HOME/.cargo/env
+----------------------------------------------------------------
+最新版のParityをインストール。
+root@vagrant:~# bash <(curl https://get.parity.io -Lk)
+起動の確認
+root@vagrant:~# parity --no-warp --geth
+
+起動
+# parity --no-warp --geth &
+停止
+pkill -KILL -x parity
+
+Ethereum のネットワークにContractをデプロイするためには
+Deployサーバ上にDeploy用KeyPairの作成が必要になる。
+SSH PortForwadでのDeploy用ノードに接続
+DeployNodeにgethクライアントで接続する。
+$ geth attach http://localhost:8545
+
+**SSH PortForwadでのDeploy用ノードに接続が上手くいかない
+https://guide.blockchain.z.com/ja/docs/init/deploy-node/
