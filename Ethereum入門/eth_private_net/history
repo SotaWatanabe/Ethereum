@@ -1,0 +1,6 @@
+eth.getBlock(0)
+eth.accounts
+eth.coinbase
+miner.start()
+miner.stop()
+exit()

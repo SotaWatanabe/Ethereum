@@ -1,0 +1,24 @@
+プライベートネットに接続する
+
+①同じディレクトリにGenesisファイルを作成する
+$ mkdir eth_private_net
+
+②Genesisファイルはjson形式。myGenesis.jsonを作成
+
+③Gethをプライベートネットで起動する
+genesisファイルの情報でブロックチェーン情報を初期化
+$ geth --datadir path/to/custom/data/folder init genesis.json
+
+＊Example
+geth --datadir /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net init genesis.json
+
+＊コマンドを実行すると、--datadirで指定したディレクトリ以下にchaindataディレクトリが作成。その中にgenesisブロックのブロックチェーン情報が保存される。
+
+gethの起動
+$ geth --networkid "10" --nodiscover --datadir "/home/test_u/eth_private_net" console 2>> /home/test_u/eth_private_net/geth_err.log
+
+＊Example
+$ geth --networkid "10" --nodiscover --datadir "/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net" console 2>> "/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth_err.log"
+
+立ち上げたプライベート・ネットのGenesisブロックがgenesis.jsonに記載されたものになっているのかを確認。
+>eth.getBlock(0)

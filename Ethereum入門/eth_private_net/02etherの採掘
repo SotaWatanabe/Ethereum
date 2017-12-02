@@ -1,0 +1,19 @@
+etherを採掘する
+
+①アカウント（EOA（Externally Owned Account)）の作成
+> personal.newAccount("password")
+＊passwordの部分は作成するEOAのパスワード
+実行すると、作成されたEOAの20バイトのアドレスが表示される
+
+Example
+> personal.newAccount("SotaSota")
+"0x3681c9eccd113fa43a4d51ac3c72a7b40ae0f29b"
+> eth.accounts
+["0x3681c9eccd113fa43a4d51ac3c72a7b40ae0f29b"]
+＊eth.coinbase　このコマンドはcoinbaseを表示するコマンドで、coinbaseとは、各ノードで採掘を行う際にその報酬を紐づけるEOAのアドレスのこと。
+
+マイニングスタート
+> miner.start()
+
+マイニングストップ
+> miner.stop()
