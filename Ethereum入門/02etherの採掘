@@ -17,3 +17,25 @@ Example
 
 マイニングストップ
 > miner.stop()
+
+採掘状態の確認
+ブロックの採掘された個数の確認
+> eth.blockNumber
+
+採掘されているかの確認
+> eth.hashrate
+採掘が行われていないとhashrateは0になる
+
+採掘したブロックの内容を調べる
+> eth.getBlock(Blocknumber)
+
+採掘した報酬の確認
+> eth.accounts //作成したアカウントのアドレスを再確認
+['0x24afe6c0c64821349bc1bfa73110512b33fa18e1', '0x59c444d6c4f4187d1dd1875ad74a558a2a3e20b6' ]
+> eth.getBalance(eth.accounts[0])
+'51500000000000000000'
+> eth.getBalance(eth.accounts[1])
+'0'
+
+weiからetherに単位換算
+> web3.fromWei(eth.getBalance(eth.accounts[0]),"ether")
