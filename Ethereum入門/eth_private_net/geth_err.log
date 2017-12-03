@@ -24,3 +24,17 @@ INFO [12-01|20:12:03] Stopping Ethereum protocol
 INFO [12-01|20:12:03] Ethereum protocol stopped 
 INFO [12-01|20:12:03] Transaction pool stopped 
 INFO [12-01|20:12:03] Database closed                          database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata
+INFO [12-02|20:52:41] Starting peer-to-peer node               instance=Geth/v1.7.3-unstable-8d434f6a/darwin-amd64/go1.9.2
+INFO [12-02|20:52:41] Allocated cache and file handles         database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata cache=128 handles=1024
+INFO [12-02|20:52:41] Initialised chain configuration          config="{ChainID: 15 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Engine: unknown}"
+INFO [12-02|20:52:41] Disk storage enabled for ethash caches   dir=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/ethash count=3
+INFO [12-02|20:52:41] Disk storage enabled for ethash DAGs     dir=/Users/watanabesouta/.ethash                                                                count=2
+INFO [12-02|20:52:41] Initialising Ethereum protocol           versions="[63 62]" network=10
+INFO [12-02|20:52:41] Loaded most recent local header          number=0 hash=614a31…9df7ba td=200000000
+INFO [12-02|20:52:41] Loaded most recent local full block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-02|20:52:41] Loaded most recent local fast block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-02|20:52:41] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-02|20:52:41] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-02|20:52:41] Starting P2P networking 
+INFO [12-02|20:52:41] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
+INFO [12-02|20:52:41] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 

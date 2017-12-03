@@ -1,0 +1,19 @@
+Contractを作成する
+
+Ethereumには２つのタイプのアカウントが存在する。
+
+①EOA（Externally Owned Account）
+ユーザーがそのアカウントを作成し、任意のタイミングでそのアカウントを通じてEthereumネットワークとのやり取りを行う。
+
+②Contract
+それぞれのContractは、各自にクラス変数に相当するような、内部状態を保持するストレージ部分と、メソッドに相当するような、実行コードである「コントラクト・コード」を持っている。
+
+コントラクト・コードは、Ethereumネットワーク上ではEthereum Virtual Machine Code（EVM Code）というバイトコードの形式で記述され処理される。
+
+Mac OS Xへのインストール
+$ brew install cpp-ethereum
+$ brew linkapps cpp-ethereum
+$ brew install solidity
+
+＊途中
+https://book.ethereum-jp.net/first_use/contract.html

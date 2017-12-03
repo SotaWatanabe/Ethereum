@@ -26,3 +26,13 @@
 19:54:37.102462 db@open done T·29.161946ms
 20:12:03.899563 db@close closing
 20:12:03.903064 db@close done T·4.361034ms
+=============== Dec 2, 2017 (PST) ===============
+20:52:41.148316 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+20:52:41.150459 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+20:52:41.150578 db@open opening
+20:52:41.153945 journal@recovery F·1
+20:52:41.161597 journal@recovery recovering @6
+20:52:41.169360 memdb@flush created L0@8 N·3 S·290B "Blo..ion,v19":"dbU..ata,v18"
+20:52:41.171860 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
+20:52:41.179233 db@janitor F·5 G·0
+20:52:41.179290 db@open done T·28.673206ms
