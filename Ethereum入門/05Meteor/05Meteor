@@ -1,0 +1,28 @@
+①Meteorのインストール
+$ curl https://install.meteor.com | sh
+確認
+$ meteor --version
+
+②アプリケーションの作成
+$ meteor create myfirstapp
+
+myfirstapp.css, myfirstapp.html, myfirstapp.js
+の３つのファイルと.meteorディレクトリが含まれるmyfirstappのディレクトリが作成される。
+これはmeteorが自動的に作成するアプリケーションのひな形。このディレクトリのファイルを編集したり、
+追加していくことでMeteorのWebアプリケーションの開発を進めていく。
+
+③myfirstappのディレクトリに移動して、
+$ meteor
+を実行。以下が表示されるので、http://localhost:3000/をブラウザーで表示する
+[[[[[ ~/Desktop/Blockchain/Ethereum.git/Ethereum入門/myfirstapp ]]]]]
+
+=> Started proxy.
+=> Started MongoDB.
+=> Started your app.
+
+=> App running at: http://localhost:3000/
+このMeteorを用いてEthereumネットワーク上で動作する分散型アプリケーションの開発を行う
+
+＊参考資料
+http://ja.discovermeteor.com/
+http://docs.meteor.com/#/full/

@@ -38,3 +38,71 @@ INFO [12-02|20:52:41] Regenerated local transaction journal    transactions=0 ac
 INFO [12-02|20:52:41] Starting P2P networking 
 INFO [12-02|20:52:41] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
 INFO [12-02|20:52:41] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 
+INFO [12-03|20:37:41] Starting peer-to-peer node               instance=Geth/v1.7.3-unstable-8d434f6a/darwin-amd64/go1.9.2
+INFO [12-03|20:37:41] Allocated cache and file handles         database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata cache=128 handles=1024
+INFO [12-03|20:37:41] Initialised chain configuration          config="{ChainID: 15 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Engine: unknown}"
+INFO [12-03|20:37:41] Disk storage enabled for ethash caches   dir=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/ethash count=3
+INFO [12-03|20:37:41] Disk storage enabled for ethash DAGs     dir=/Users/watanabesouta/.ethash                                                                count=2
+INFO [12-03|20:37:41] Initialising Ethereum protocol           versions="[63 62]" network=10
+INFO [12-03|20:37:41] Loaded most recent local header          number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:37:41] Loaded most recent local full block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:37:41] Loaded most recent local fast block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:37:41] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-03|20:37:41] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-03|20:37:41] Starting P2P networking 
+INFO [12-03|20:37:41] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
+INFO [12-03|20:37:41] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 
+Fatal: Error starting protocol stack: datadir already used by another process
+-bash: --nodiscover: command not found
+-bash: --nodiscover: command not found
+Fatal: Error starting protocol stack: datadir already used by another process
+INFO [12-03|20:47:11] Starting peer-to-peer node               instance=Geth/v1.7.3-unstable-8d434f6a/darwin-amd64/go1.9.2
+INFO [12-03|20:47:11] Allocated cache and file handles         database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata cache=128 handles=1024
+INFO [12-03|20:47:11] Initialised chain configuration          config="{ChainID: 15 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Engine: unknown}"
+INFO [12-03|20:47:11] Disk storage enabled for ethash caches   dir=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/ethash count=3
+INFO [12-03|20:47:11] Disk storage enabled for ethash DAGs     dir=/Users/watanabesouta/.ethash                                                                count=2
+INFO [12-03|20:47:11] Initialising Ethereum protocol           versions="[63 62]" network=10
+INFO [12-03|20:47:11] Loaded most recent local header          number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:11] Loaded most recent local full block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:11] Loaded most recent local fast block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:11] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-03|20:47:11] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-03|20:47:11] Starting P2P networking 
+INFO [12-03|20:47:11] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
+INFO [12-03|20:47:11] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 
+INFO [12-03|20:47:11] HTTP endpoint opened: http://localhost:8545 
+INFO [12-03|20:47:22] Starting peer-to-peer node               instance=Geth/v1.7.3-unstable-8d434f6a/darwin-amd64/go1.9.2
+INFO [12-03|20:47:22] Allocated cache and file handles         database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata cache=128 handles=1024
+INFO [12-03|20:47:22] Initialised chain configuration          config="{ChainID: 15 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Engine: unknown}"
+INFO [12-03|20:47:22] Disk storage enabled for ethash caches   dir=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/ethash count=3
+INFO [12-03|20:47:22] Disk storage enabled for ethash DAGs     dir=/Users/watanabesouta/.ethash                                                                count=2
+INFO [12-03|20:47:22] Initialising Ethereum protocol           versions="[63 62]" network=10
+INFO [12-03|20:47:22] Loaded most recent local header          number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:22] Loaded most recent local full block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:22] Loaded most recent local fast block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:47:22] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-03|20:47:22] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-03|20:47:22] Starting P2P networking 
+INFO [12-03|20:47:22] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
+INFO [12-03|20:47:22] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 
+INFO [12-03|20:47:22] HTTP endpoint opened: http://localhost:8545 
+Fatal: Failed to unlock account 0x3681c9eccd113fa43a4d51ac3c72a7b40ae0f29b (could not decrypt key with given passphrase)
+INFO [12-03|20:48:39] Starting peer-to-peer node               instance=Geth/v1.7.3-unstable-8d434f6a/darwin-amd64/go1.9.2
+INFO [12-03|20:48:39] Allocated cache and file handles         database=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/chaindata cache=128 handles=1024
+INFO [12-03|20:48:39] Initialised chain configuration          config="{ChainID: 15 Homestead: 0 DAO: <nil> DAOSupport: false EIP150: <nil> EIP155: 0 EIP158: 0 Byzantium: <nil> Engine: unknown}"
+INFO [12-03|20:48:39] Disk storage enabled for ethash caches   dir=/Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth/ethash count=3
+INFO [12-03|20:48:39] Disk storage enabled for ethash DAGs     dir=/Users/watanabesouta/.ethash                                                                count=2
+INFO [12-03|20:48:39] Initialising Ethereum protocol           versions="[63 62]" network=10
+INFO [12-03|20:48:39] Loaded most recent local header          number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:48:39] Loaded most recent local full block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:48:39] Loaded most recent local fast block      number=0 hash=614a31…9df7ba td=200000000
+INFO [12-03|20:48:39] Loaded local transaction journal         transactions=0 dropped=0
+INFO [12-03|20:48:39] Regenerated local transaction journal    transactions=0 accounts=0
+INFO [12-03|20:48:39] Starting P2P networking 
+INFO [12-03|20:48:39] RLPx listener up                         self="enode://af40b2730eac059999ae746602f69ec6f3f9249afb41ab808aa0b2ea6fd1f00b995204b5fdbb2d08db4069a752e40e66f73e7243879e5ff8c94ba009926ef8ba@[::]:30303?discport=0"
+INFO [12-03|20:48:39] IPC endpoint opened: /Users/watanabesouta/desktop/blockchain/Ethereum.git/Ethereum入門/eth_private_net/geth.ipc 
+INFO [12-03|20:48:39] HTTP endpoint opened: http://localhost:8545 
+INFO [12-03|20:48:44] Unlocked account                         address=0x3681C9EccD113fA43A4D51ac3C72a7b40Ae0F29B
+INFO [12-03|20:48:44] Transaction pool price threshold updated price=18000000000
+INFO [12-03|20:48:44] Starting mining operation 
+INFO [12-03|20:48:44] Commit new mining work                   number=1 txs=0 uncles=0 elapsed=1.215ms
