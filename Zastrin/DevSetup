@@ -1,0 +1,49 @@
+Dev Setup
+we have to install testrpc and web3 packages through npm. We will also install solc which is used to compile the contract.
+$ brew update
+$ brew install nodejs
+$ node --version
+$ v7.10.0
+$ npm --version
+$ 4.2.0
+$ mkdir -p ethereum_voting_dapp/chapter1
+$ cd ethereum_voting_dapp/chapter1
+$ npm install ethereumjs-testrpc web3@0.20.1 solc
+$ testrpc
+
+--------------------------------------------------------------------------------
+EthereumJS TestRPC v6.0.3 (ganache-core: 2.0.2)
+
+Available Accounts
+==================
+(0) 0x5f0b7cc0f31dffedb415d56e19abcf9d6df29f02
+(1) 0xe841ad4cc52fdf05e9825d983e2b4cc42c68fd78
+(2) 0x56d2702b3a37d4c3d96589b92de13f9e9b0c32da
+(3) 0x21f4b2dd88ff551a068f4f2537f2bc2bee9ce11c
+(4) 0x22db7b83166f53ab722873438757da0f78fb688d
+(5) 0xb4dd46c7b12a63d1ebd1fee19f1ebc6cb2aef3a3
+(6) 0xb7a86a1e9616542b84cda79773591b273ed508d7
+(7) 0x22c1a3cc8a403d655f2bf6915b6b5074cde026da
+(8) 0x7860b185d98b52211bcb40afcbcd9132bd9057cb
+(9) 0x8c8d0f4dbfdec533ed51e9a9d1f4cd5e343e9381
+
+Private Keys
+==================
+(0) 75bf2ab08b6badb9cb49806f98c6c26e562cab20b50da4a1d590c4a2a54d6718
+(1) 397f774bfc214878f6ac5957378877d9a6b62a6a3581a8408e0a6f2b175a28c9
+(2) cabe6b2954880c5c7bd2dbe20924542dfd058ff6ad0c643a09293e0a061057a6
+(3) b43cda0779c6248eb2e92783eb8117854cb9e7be07170fa64702bdc1c2ed0e26
+(4) 37f594d9d078d2ac2371d9dbd130b1db362c6626280dceb506cae1c58d93bf43
+(5) 795a8dd3aabe77996d1160b007bcb83561bd796a9d245029e499bf1c86486d96
+(6) 919fe09ac09383d28de1f3009912bd123c45b84f11e499c1121d76153b9e54f6
+(7) 38e2aaaeeb6e1c0ae238abb3b2f298b687707555c69ab365f6c2528200bf1709
+(8) e0daf3e0c18415c1db7fb77f6c3767b1b93e70b04b9e548d927bdc6ee6d0ef65
+(9) 8f1fae2bdddd41c74e385cbea3de64a5cdb649800665839ff14316bd5f614bb4
+
+HD Wallet
+==================
+Mnemonic:      maid trophy motion genre shield dumb add spy gorilla expose disorder tower
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Listening on localhost:8545
+--------------------------------------------------------------------------------
