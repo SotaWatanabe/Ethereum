@@ -1,7 +1,10 @@
+//version of compiler
 pragma solidity ^0.4.18;
 
 contract Voting {
-
+    //mapping : candidateの名前はbytes32で表現。
+    //publicはvisibility specifierと呼ばれる。自分以外の人にコードが使われたくなければ
+    //plivateを使う。
     mapping (bytes32 => uint8) public votesReceived;
     bytes32[] public candidateList;
 
