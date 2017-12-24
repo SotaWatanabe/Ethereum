@@ -1,0 +1,8 @@
+ブロックチェーン上にデプロイするために、abi definitionを使ってVotingContractを作成する。
+> abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface
+> VotingContract = web3.eth.contract(abiDefinition)
+> byteCode = compiledCode.contracts[':Voting'].bytecode
+> deployedContract = VotingContract.new(['Rama','Nick','Jose'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
+> deployedContract.address
+'0x1f121e45eff036da9bc2f41ccd97e26c357d3704'
+> contractInstance = VotingContract.at(deployedContract.address)
