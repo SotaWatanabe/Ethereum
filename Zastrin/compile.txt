@@ -1,0 +1,23 @@
+testrpcがもう１つのターミナルで動いていることを確認する。
+
+$ node
+
+nodeコンソールに入った後、web3を初期化する。
+> Web3 = require('web3')
+> web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+> web3.eth.accounts
+[ '0xd90d3a2b39e4d7931618fbf6aeed92ab4e48b569',
+  '0xc46003eb2f8dcbb3d1e815315bb53b707ba87ca6',
+  '0x7d35e65b2ee149c033213b454e58086a2ea88436',
+  '0xe478a547c53d14cb75f31fbd26b29dae7381f303',
+  '0x07cb2d47ee10287f5307b6824042baff898d3a75',
+  '0xfb2204a3469214397fdbe556748f5956ab84bc1a',
+  '0x515d76c8c266240edcc4044513930cccaec9d9ad',
+  '0x5c335c03d59a03490cafad7d84533d8d1f231f49',
+  '0x5e77d2b464bf9ed6968746964a5d1dda8fec5c75',
+  '0x4d3bf66b6b1aa252542b45dc909e2e847da9c830' ]
+コンパイルを行う為に、Voting.solからロードする。
+
+> code = fs.readFileSync('Voting.sol').toString
+> solc = require('solc')
+> compiledCode = solc.compile(code)
