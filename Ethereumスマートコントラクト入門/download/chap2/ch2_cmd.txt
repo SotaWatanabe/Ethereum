@@ -1,0 +1,190 @@
+// コンパイラ等インストール
+sudo apt-get install -y build-essential libgmp3-dev golang git tree
+
+// Gethのインストール(1.5.5)
+cd
+git clone https://github.com/ethereum/go-ethereum.git
+cd go-ethereum/
+git checkout refs/tags/v1.5.5
+make geth
+./build/bin/geth version
+sudo cp build/bin/geth /usr/local/bin/
+which geth
+
+// データディレクトリの準備
+mkdir ~/data_testnet
+
+// Genesisファイル
+cd data_testnet/
+vi genesis.json
+{
+	"nonce": "0x0000000000000042",
+	"timestamp": "0x0",
+	"parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+	"extraData": "0x0",
+	"gasLimit": "0x8000000",
+	"difficulty": "0x4000",
+	"mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+	"coinbase": "0x3333333333333333333333333333333333333333",
+	"alloc": {}
+}
+
+// 初期化（ディレクトリは適宜変更してください。ここでは、ethというユーザのホームディレクトリで操作しています）
+geth --datadir /home/eth/data_testnet init /home/eth/data_testnet/genesis.json
+cd
+tree data_testnet/
+
+// 起動
+geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet console 2>> /home/eth/data_testnet/geth.log
+
+
+// アカウント作成
+personal.newAccount("pass0")
+personal.newAccount("pass1")
+
+// アカウント確認
+eth.accounts
+eth.accounts[0]
+eth.accounts[1]
+
+// コンソール終了
+exit
+
+// gethコマンドでアカウント作成
+geth --datadir /home/eth/data_testnet account new
+
+// gethコマンドでアカウント確認
+geth --datadir /home/eth/data_testnet account list
+
+
+// Gethの起動
+geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet console 2>> /home/eth/data_testnet/geth.log
+
+// アカウント確認
+eth.accounts
+
+// Etherbase確認
+eth.coinbase
+
+// Etherbase変更
+miner.setEtherbase(eth.accounts[1])
+
+// Etherbase確認と戻し
+eth.coinbase
+miner.setEtherbase(eth.accounts[0])
+eth.coinbase
+
+// アカウントの残高確認
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.accounts[1])
+eth.getBalance(eth.accounts[2])
+
+// ブロック番号確認
+eth.blockNumber
+
+// マイニング開始
+miner.start(1)
+
+// マイニング確認系コマンド
+eth.mining
+eth.hashrate
+eth.blockNumber
+
+// マイニング停止
+miner.stop()
+
+// Etherbaseの残高確認
+eth.getBalance(eth.coinbase)
+
+// アカウントの残高確認
+eth.getBalance(eth.accounts[0])
+eth.getBalance(eth.accounts[1])
+eth.getBalance(eth.accounts[2])
+
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+
+// 送金
+eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: web3.toWei(10, "ether")})
+
+// アンロック
+personal.unlockAccount(eth.accounts[0])
+personal.unlockAccount(eth.accounts[0], "pass0")
+personal.unlockAccount(eth.accounts[0], "pass0", 0)
+
+// ペンディングされているトランザクション確認
+eth.pendingTransactions
+
+// 残高確認
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+
+// 送金
+eth.sendTransaction({from: eth.accounts[1], to: eth.accounts[2], value: web3.toWei(5, "ether")})
+
+// 残高確認
+web3.fromWei(eth.getBalance(eth.accounts[2]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[1]), "ether")
+web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+
+
+// バックグラウンドでGethを起動
+nohup geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc 2>> /home/eth/data_testnet/geth.log &
+
+// Gethのコンソールに接続
+geth attach rpc:http://localhost:8545
+
+// マイニング確認
+eth.mining
+
+// コンソール終了
+exit
+
+// バックグラウンドでGethを起動（JSON-RPC）
+nohup geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" 2>> /home/eth/data_testnet/geth.log &
+
+// curlでアカウント作成
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["pass3"],"id":10}' localhost:8545
+
+// curlでアカウント確認
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_listAccounts","params":[],"id":10}' localhost:8545
+
+// curlでマイニング確認
+$ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":10}' localhost:8545
+
+// curlでハッシュレート確認
+$ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","params":[],"id":10}' localhost:8545
+
+// curlでブロック番号確認
+$ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":10}' localhost:8545
+
+// curlで残高確認（アドレスは適宜変更してください）
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xd4b066d813731a946fb883037f318c2d9444fcfe" , "latest"],"id":10}' localhost:8545
+
+// curlでアンロック（アドレスは適宜変更してください）
+curl -X POST --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xd4b066d813731a946fb883037f318c2d9444fcfe", "pass2", 300],"id":10}' localhost:8545
+
+// curlで送金（アドレスは適宜変更してください）
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xd4b066d813731a946fb883037f318c2d9444fcfe","value":"0x6F05B59D3B20000","to":"0x3293ba9409e0881d23b494c8922318793971aac2"}],"id":10}' localhost:8545
+
+
+// Geth起動時にアカウントをアンロック
+geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --unlock 0 --verbosity 6 console 2>> /home/eth/data_testnet/geth.log
+
+
+// パスワードファイルを用意
+echo pass0 >> /home/eth/data_testnet/passwd
+echo pass1 >> /home/eth/data_testnet/passwd
+cat /home/eth/data_testnet/passwd
+pass0
+pass1
+
+// Geth起動時にアカウントをアンロック（パスワードファイル）
+geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --unlock 0,1 --password /home/eth/data_testnet/passwd --verbosity 6 console 2>> /home/eth/data_testnet/geth.log
+
+// バックグラウンドでGeth起動時にアカウントをアンロック（パスワードファイル）
+nohup geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --unlock 0,1 --password /home/eth/data_testnet/passwd --verbosity 6 2>> /home/eth/data_testnet/geth.log &
+
+// Gethのコンソールに接続
+geth attach rpc:http://localhost:8545
+

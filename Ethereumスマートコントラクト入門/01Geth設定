@@ -1,0 +1,28 @@
+テストネットワークでGethを起動
+①データディレクトリの準備
+データディレクトリとは送受信したデータやアカウントの情報を保存するためのディレクトリ
+$ mkdir 〜/data_testnet
+$ cd data_testnet
+
+②Genesisブロックの作成
+Genesisブロックとはブロックチェーンの0番目のブロックの情報を書いたもの。
+ローカルでブロックチェーンを創る際には、同じGenesisブロックを共有する必要がある。
+$ vi genesis.json
+{
+"nonce": "0x0000000000000042",
+"mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+"difficulty": "0x400",
+"alloc": {},
+"coinbase": "0x3333333333333333333333333333333333333333",
+"timestamp": "0x0",
+"parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+"extraData": "0x",
+"gasLimit": "0x8000000",
+"config": {}
+}
+
+③Gethの初期化
+$ geth --datadir /Users/watanabesouta/desktop/Blockchain/Ethereum.git/Ethereumスマートコントラクト入門/data_testnet init /Users/watanabesouta/desktop/Blockchain/Ethereum.git/Ethereumスマートコントラクト入門/data_testnet/genesis.json
+
+④Gethの起動
+$ geth --networkid 10 --nodiscover --maxpeers 0 --datadir /Users/watanabesouta/desktop/Blockchain/Ethereum.git/Ethereumスマートコントラクト入門/data_testnet console 2>> /Users/watanabesouta/desktop/Blockchain/Ethereum.git/Ethereumスマートコントラクト入門/data_testnet/geth.log
