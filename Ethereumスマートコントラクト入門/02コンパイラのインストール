@@ -1,0 +1,13 @@
+コンパイラのインストール
+$ brew update
+$ brew upgrade
+$ brew install boost
+$ brew install cmake cryptopp gmp
+$ git clone --recursive https://github.com/ethereum/solidity.git
+$ cd solidity
+$ mkdir build
+$ cd build
+$ cmake .. && make
+$ make install
+$ solc --version
+$ which solc
