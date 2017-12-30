@@ -1,0 +1,22 @@
+//solidityのデータ型
+pragma solidity ^0.4.20;
+
+contract DataTypeSmaple{
+    function getValueType() constant returns (uint){
+        uint a; //uint型の変数aを宣言、この時点ではaは0で初期化
+        a = 1; //aの値が1になる
+        uint b = a; //変数bにaの値1が代入される
+        b = 2; //bの値が2になる
+        return a; //aの値の1が返される
+    }
+
+    function getReferenceType() constant return (uint[2]){
+        uint[2] a; //uint型の長さ2のデータ領域のアドレスを格納する変数aを宣言
+        a[0] = 1; //1つの要素の値が1になる
+        a[1] = 2 ; //2つ目の要素の値が2になる
+        uint[2] b = a; //bにaの値を代入、aはデータ領域のアドレスの為、bはaと同じデータ領域を参照する
+        b[0] = 10; //bとaは同じデータ領域を参照する為に、a[0]も10になる
+        b[1] = 20; //同時にa[1]も20になる
+        return a; //10,20が返される
+    }
+}

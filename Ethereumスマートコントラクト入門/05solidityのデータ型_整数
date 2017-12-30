@@ -1,0 +1,33 @@
+/*整数int,uint
+整数型は符号付きintもしくは符号なしuintで表す。
+uint8〜uint256、int8〜int256まで8の倍数長の型が存在する。この数字はビット数を表す。
+初期値は0。*/
+
+pragma solidity ^0.4.20;
+
+contract IntSample{
+    function division() constant returns (uint){
+        uint a = 3;
+        uint b = 2;
+        uint c = a/b*10; //a/bが切り捨てられて1になる
+        return c; //10
+    }
+
+    function divisionLiterals() constant returns (uint){
+        uint c = 3/2*10; //リテラルなのでa/bは切り捨てられない
+        return c; //15
+    }
+
+    function divisionByZero() constant returns (uint) {
+        uint a = 3;
+        uint c = a/0
+        return c //不可
+    }
+
+    function shift() constant returns (uint[2]){
+        uint[2] a;
+        a[0] = 16 << 2; //16*2**2 = 64
+        a[1] = 16 >> 2; //16/2**2 = 4
+        return a; //64.4が返される
+    }
+}
