@@ -1,0 +1,19 @@
+//アドレス
+//サイズは20バイト、初期値は0x0000000000000000000000000000000
+//transferとsendはetherを送金するメソッドだが失敗時の挙動が異なる。
+//transferは失敗時に処理が巻き戻り無かったことになるが、sendは処理が継続する。
+//sendを使用する際は戻り値を確認すること。
+//gasを使用して送金するためにはcall.value().gas()()を使用する。
+
+//アドレスが保有するEtherをWeiで返す。戻り値はuint256
+<address>.balance
+
+//アドレスにEtherをamount送金する。単位はWei
+<address>.transder(uint256 amount)
+
+//アドレスにEtherをamount送金する。単位はWei。失敗時にsendはfalseを返す。
+<address>.send(uint256 amount) returns(bool)
+
+//アドレスにEtherをamount送金する。単位はWei。send,transferと比べて低レベルの位置づけ。
+//gasの値を指定することができる。失敗時にはfalseを返す。
+<address>.call.value(uint256 amount).gas(uint256 val)() returns(bool)
