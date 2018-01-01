@@ -1,0 +1,54 @@
+//配列
+//固定長、可変長を扱うことができる。配列の要素は任意の型を指定することができる。サイズK、要素タイプTの固定長の配列はT[k]、可変長配列の場合はT[]と表すことができる。
+
+<address>.length //配列の長さを保持する。可変長配列ではこの値を操作することにより配列長を変更する。
+
+<array>.push(x) //可変長配列の最後に要素を追加するメソッド。
+
+pragma solidity ^0.4.8;
+
+contract ArraySample{
+    uint[5] public fArray = [uint(10), 20, 30, 40, 50]; //固定長配列の宣言と初期化
+    uint[] public dArray; //可変長配列の宣言
+    function getFixedArray() constant returns (uint[5]){
+        uint[5] a; //長さ5の固定長配列を宣言
+        for (uint i = 0; i < a.length; i++){
+            a[i] = i + 1;
+        }
+        return a; //[1,2,3,4,5]
+    }
+
+    function pushFixedArray(uint x) constant returns (uint){
+        fArray.push(1); //コンパイルエラー
+        return fArray.length;
+    }
+
+    function pushDArray(uint x) returns (uint){
+        return dArray.push(x); //引数で渡された要素を追加し、更新後の要素数を返す。
+    }
+
+    function getDArrayLength() returns (uint){
+        return dArray.length; //可変長配列の現在のサイズを返す。
+    }
+
+    function initDArray(uint len){
+        dArray.length = len;
+        for (uint i = 0; i < len; i++){
+            dArray[i] = i + 1;
+        }
+    }
+
+    function getDArray() constant returns (uint[]){
+        return dArray; //可変長配列も返せる。
+    }
+
+    function delDArray() returns (uint){
+        delete dArray; //可変長配列を削除
+        return dArray.length; //0を返す
+    }
+
+    function delFArray() returns(uint){
+        delete fArray; //固定長配列を削除。各要素は0に。
+        return fArray.length; //長さは5のまま
+    }
+}
