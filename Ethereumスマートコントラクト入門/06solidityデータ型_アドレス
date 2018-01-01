@@ -17,3 +17,49 @@
 //アドレスにEtherをamount送金する。単位はWei。send,transferと比べて低レベルの位置づけ。
 //gasの値を指定することができる。失敗時にはfalseを返す。
 <address>.call.value(uint256 amount).gas(uint256 val)() returns(bool)
+
+pragma solidity ^0.4.20
+
+contract AddressSample{
+    //無名関数（送金すると実行される）payableを指定することでEtherの受付が可能
+    function() payable{}
+    function getBalance(address _target) constant returns (uint) {
+        if(_target == address(0)){//_targetが0の場合はコントラクト自信のアドレスをセットする。
+        _target = this;
+        }
+    return _target.balance; //残高の表示
+    }
+
+    //引数で指定されたアドレスにtransferを使用して送金する。
+    function send(address _to, uint _amount){
+        _to.transfer(_amount);
+    }
+
+    //引数で指定されたアドレスにsendを使用して送金
+    function send(address _to, uint _amount){
+        if(!_to.send(_amount)){//sendを使用する前に戻り値を見る。
+            throw;
+        }
+    }
+
+    //引数で指定されたアドレスにcallを使用して送金
+    function call(address _to, uint _amount){
+        if(!_to.call.value(_amount).gas(1000000)()){//callも戻り値をチェックする
+        throw;
+        }
+    }
+
+    //引き出しパターン(transfer)
+    function withdraw(){
+        address to = msg.sender; //メソッド実行者を宛先に
+        to.transfer(this.balance); //全額送金する
+    }
+
+    //引き出しパターン(call)
+    function withdraw2(){
+        address to = msg.sender;
+        if(!to.call.value(this.balance).gas(1000000)()){
+            //全額送金
+            throw;
+        }
+    }
