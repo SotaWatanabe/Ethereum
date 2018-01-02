@@ -1,0 +1,13 @@
+pragma solidity ^0.4.8;
+
+contract EtherUintSample{
+    function () payable{} //ether受取用のメソッド
+    //gethEther実行前にこのコントラクトに対し1ether送金する
+    function getEther() constant returns (uint _wei, uint _szabo, uint _finney, uint _ether){
+        uint amount = this.balance; //1000000000000000000
+        _wei = amount / 1 wei; //1000000000000000000
+        _szabo = _wei / 1 szabo; //1000000
+        _finney = _wei / 1 finney; //1000
+        _ether = _wei / 1 ether; //1
+    }
+}
