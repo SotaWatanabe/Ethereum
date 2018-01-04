@@ -1,0 +1,39 @@
+//コントラクトの継承
+pragma solidity ^0.4.8;
+
+contract A{
+    uint public a;
+    function setA(uint _a){
+        a = _a;
+    }
+    function getData() constant returns (uint){
+        return a; //aのまま返す
+    }
+}
+
+contract B is A{ //BはAのサブコントラクト
+    function getData() constant return (uint){
+        return a*10;
+    }
+}
+
+contract C{
+    A[] public c; //データ型をコントラクトAとした可変長配列cを宣言
+    //コントラクトの作成
+    function makeContract(){
+        c.length = 2;
+        A a = new A(): //コントラクトAを作成
+        a.setA(1); //1をセット
+        c[0] = a; //配列の1つ目に要素を代入
+        B b = new B(); //コントラクトBを作成
+        b.setA(1); //同じく1をセット
+        c[1] = b; //配列の2つ目の要素に代入
+    }
+    //コントラクトのデータを返す
+    function getData() constant returns (uint, uint){
+        if (c.length == 2){
+            return (c[0].getData(),c[1].getData());
+            //(1,10)を返す
+        }
+    }
+}

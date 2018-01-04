@@ -1,0 +1,22 @@
+//ブロックのプロパティー
+
+//指定したブロックのハッシュを返す。
+block.blockhash(uint blockNumber)
+
+//カレントブロックのマイナーアドレス
+block.coinbase
+
+//カレントブロックの番号
+block.number
+
+//カレントブロックのタイムスタンプ
+block.timestamp
+
+//送信者のアドレス
+msg.sender
+
+//送金額
+msg.value
+
+//block.timestampのエイリアス
+now
