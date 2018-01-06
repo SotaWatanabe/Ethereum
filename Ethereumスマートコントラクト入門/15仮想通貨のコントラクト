@@ -1,0 +1,19 @@
+//Browser-solidityとgethを起動
+//動作確認に使用するアカウントにはEtherが必要。sendTransferで送金をしておく
+
+pragma solidity ^0.4.20;
+
+contract OreOreCoin{
+    //状態変数の宣言
+    string public name; //トークンの名前
+    string public symbol; //トークンの単位
+    uint8 public decimals; //小数点以下の桁数
+    uint256 public totalSupply //トークンの総量
+    mapping (address => uint256) public balanceOf; //各アドレスの残高
+    //balanceOfはaddressを添字としたuint256型の配列
+
+    //イベントの通知
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    //コンストラクタ
+}

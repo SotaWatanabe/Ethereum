@@ -1,3 +1,5 @@
+//マッピング型とはいわゆる連想配列。キーと値を関連付けることができる。
+//mapping(_KeyType => _ValueType)の形で宣言する。
 //mapping
 pragma solidity ^0.4.8;
 
