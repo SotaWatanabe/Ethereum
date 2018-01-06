@@ -1,0 +1,20 @@
+//コントラクトの破棄
+//破棄の際に、当該コントラクトが保持しているEtherは指定したアドレスに送信される
+
+pragma solidity ^0.4.20;
+
+contract SelfDestructSample{
+    address public owner = msg.sender; //コントラクトをデプロイしたアドレスをオーナーとする
+    //送金を受け付ける
+    function () payable{}
+    //コントラクトを破棄
+    function close(){
+        if(owner ! = msg.sender) throw; //送信者がオーナーでない場合は例外を投げる
+        selfdestruct(owner); //コントラクト破棄
+    }
+    //コントラクトの残高を返す
+    function balance() constant return (uint){
+        //close()後に呼ぶとエラーになる
+        return this.balance;
+    }
+}
