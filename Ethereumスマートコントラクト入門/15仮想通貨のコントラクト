@@ -14,6 +14,7 @@ contract OreOreCoin{
 
     //イベントの通知
     event Transfer(address indexed from, address indexed to, uint256 value);
+    //イベントはトランザクションへのログ出力。eventに続いてイベント名を宣言する。
 
     //コンストラクタ
     function OreOreCoin(uint256 _supply, string _name, string _symbol, uint8 _decinals){
@@ -23,9 +24,11 @@ contract OreOreCoin{
         decimals = _decimals;
         totalSupply = _supply;
     }
+    //_supply（発行量）はメソッドの実行アドレス(msg.sender)の残高(balanceOf)として設定する
 
     //送金
     function transfer(address _to, uint256 _value){
+        //送金元のアドレスを指定しないのはメソッドの呼び出し時の実行アドレスをmsg.senderで取得できるため
         //不正送金チェック
         if (balanceOf[msg.sender] < _value) throw;
         if (balanceOf[_to] + _value < balanceOf[_to]) throw;
