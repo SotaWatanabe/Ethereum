@@ -14,11 +14,13 @@ contract OreOreCoin{
     uint8 public decimals;
     uint256 public totalSupply;
     mapping(address => uint256) public balanceOf;
+    //ブラックリスト管理用の変数とブラックリストへの追加・削除権限を持つアドレスを追加する。1以上がブラックリスト対象で、0以下をブラックリストの対象外とする
     mapping(address => int8) public blackList; //ブラックリスト
     address public owner; //オーナーアドレス
 }
 
 //修飾子
+//modifierはメソッドを実行する前に動作状態をチェックしメソッドの実行を制限することができる。オーナーアドレスのみが実行できるようにした。
 modifier onlyOwner() {if (msg.sender != owner) throw; _;}
 
 //イベント通知
