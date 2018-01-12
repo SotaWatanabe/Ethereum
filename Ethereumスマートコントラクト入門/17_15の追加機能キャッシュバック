@@ -11,6 +11,7 @@ contract OreOreCoin{
     mapping (address => uint256) public balanceOf; //各アドレスの残高
     mapping (address => int8) public blackList; //ブラックリスト
     mapping (address => int8) public cashbackRate; //各アドレスのキャッシュバック率
+    //キャッシュバック率は残高やブラックリストと同じく、アドレスごとに設定できるようにする。
     address public owner; //オーナーアドレス
 
     //修飾子
