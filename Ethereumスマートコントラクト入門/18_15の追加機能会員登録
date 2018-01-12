@@ -1,0 +1,21 @@
+//会員管理機能の追加
+//各アドレスは会員管理機能を持てることとする
+//会員の識別はアドレスで行う
+//会員管理機能として会員ごとの取引回数、全額を記録する
+//取引回数、全額に応じてキャッシュバック率を設定できる。
+
+pragma solidity ^0.4.20;
+
+//所有者管理用コントラクト
+contract Owner{
+    //状態変数
+    address public owner;
+
+    //オーナーの移転時のイベント
+    event TransferOwnership(address oldaddr, address newaddr);
+
+    //オーナー限定メソッド用の修飾子
+    modifier onlyOwner(){if (msg.sender != owner) throw; _;}
+
+    //コンストラクタ
+}
