@@ -18,4 +18,116 @@ contract Owner{
     modifier onlyOwner(){if (msg.sender != owner) throw; _;}
 
     //コンストラクタ
+    function Owned(){
+        owner = msg.sender; //最初はコントラクト作成者をオーナーにする。
+    }
+
+    //オーナーの移転
+    function TransferOwnership(address _new) onlyOwner{
+        address oldaddr = owner;
+        owner = _new;
+        TransferOwnership(oldaddr, owner);
+    }
+}
+
+//会員管理用コントラクト
+contract Member is Owner{
+    //状態変数の宣言
+    address public coin; //トークンアドレス
+    MemberStatus[] public status; //会員ステイタスの配列
+    mapping(address => History) public tradingHistory; //会員ごとの取引履歴
+
+    //会員ステイタス用構造体
+    struct MemberStatus{
+        string name; //ステイタス名
+        uint256 times; //最低取引回数
+        uint256 sum; //最低取引額
+        int8 rate; //キャッシュバック率
+    }
+
+    //取引履歴用構造体
+    struct History{
+        uint256 times; //取引回数
+        uint256 sum; //取引額
+        uint256 statusIndex; //ステイタスインデックス
+    }
+
+    //トークン限定メソッド用の修飾子
+    modifier onlyCoin({if(msg.sender == coin)_;}
+
+    //トークンアドレスのセット
+    function setCoin(address _addr) onlyOwner{
+        coin = _addr;
+    }
+
+    //会員ステイタスの追加
+    function pushStatus(string _name, uint256 _times, uint256 _sum, int8 _rate)onlyOwner{
+        status.push(MemberStatus({
+            name:_name,
+            times:_times,
+            sum:_sum,
+            rate:_rate
+            }));
+    }
+
+    //会員ステイタスの内容変更
+    function editStatus(uint256 _index, string _name, uint256 _times, uint256 _sum, int8 _rate) onlyOwner{
+        if(_index < status.length){
+            status[_index].name = _name;
+            status[_index].times = _times;
+            status[_index].sum = _sum;
+            status[_index].rate = _rate;
+        }
+    }
+
+    //取引履歴の更新
+    function updateHistory(address _member, uint256 _value) onlyCoin{
+        tradingHistory[_member].times += 1;
+        tradingHistory[_member].sum += _value;
+        //新しい会員ステイタスの決定
+        uint256 index;
+        int8 tmprate;
+        for (uint i = 0; i < status.length; i++){
+            //最低取引回数、取引額を満たし、最もキャッシュバック率が良いステオタスとする
+            if (tradingHistory[_member].times >= status[i].times && tradingHistory[_member].sum >= status[i].sum && tmprate < status[i].rate{
+                index = i;
+                })
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function setMembers(Members _members){
+        members[msg.sender] = Members(_members);
+    }
+
+    //送金
+    function transfer(address _to, uint256 _value){
+        //不正送金チェック
+        if(balanceOf[msg.sender] < _value) throw;
+        if(balanceOf[_to] + _value < balanceOf[_to]) throw;
+
+        //ブラックリストに存在するアドレスは入出金不可
+        if(blackList[msg.sender] > 0{
+            RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
+        }
+    }
 }
