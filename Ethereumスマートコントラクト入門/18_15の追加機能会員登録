@@ -89,11 +89,63 @@ contract Member is Owner{
         int8 tmprate;
         for (uint i = 0; i < status.length; i++){
             //最低取引回数、取引額を満たし、最もキャッシュバック率が良いステオタスとする
-            if (tradingHistory[_member].times >= status[i].times && tradingHistory[_member].sum >= status[i].sum && tmprate < status[i].rate{
+            if (tradingHistory[_member].times >= status[i].times && tradingHistory[_member].sum >= status[i].sum && tmprate < status[i].rate){
                 index = i;
-                })
+                }
+        }
+
+        tradingHistory[_member].statusIndex = inedex;
+
+        //キャッシュバック率の取得
+        function getCashbackRate(address _member) constant returns (int8 rate){
+            rate = status[tradingHistory[_member].statusIndex].rate;
         }
     }
+
+    //会員管理機能付き仮想通貨
+    contract OreOreCoin is Owned{
+        //状態変数の宣言
+        string public name;
+        string public symbol;
+        uint8 public decimals;
+        uint256 public totalSupply;
+
+        mapping(address => uint256) public balanceOf; //各アドレスの残高
+        mapping(address => int8) public blackList;
+        mapping(address => Members) public members;
+
+        //イベント通知
+        event Transfer(address index from, address indexed to, uint256 value);
+        event Blacklisted(address indexed target);
+        event DeleteFromBlacklist(address indexed target);
+        event RejectedpaymentToBlacklistedAddr(address indexed from, address indexed to, uint256 value);
+        event RejectedPaymentFromBlacklistedAddr(address indexed from, address indexed to, uint256 value);
+        event Cashback(address indexed from, address indexed to, uint256 value);
+
+        //コンストラクタ
+        function OreOreCoin(uint256 _supply, string _name, string _symbol, uint8 _decimals){
+            balanceOf[msg.sender] = _supply;
+            name = _name;
+            symbol = _symbol;
+            decimals = _decimals;
+            totalSupply = _supply;
+        }
+
+        //アドレスをブラックリストに登録する
+        function blacklisting(address _addr) onlyOwner{
+            blackList[_addr] = 1;
+            Blacklisted(_addr);
+        }
+
+        //アドレスをブラックリストから削除する
+        function deleteFromBlacklist(address _addr) onlyOwner{
+            blackList[_addr] = -1;
+            DeleteFromBlacklist(_addr);
+        }
+
+        //会員管理コントラクトを設定する
+    }
+
 
 
 
