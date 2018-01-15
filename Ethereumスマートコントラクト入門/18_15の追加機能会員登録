@@ -144,42 +144,34 @@ contract Member is Owner{
         }
 
         //会員管理コントラクトを設定する
-    }
+        function setMember(Members _members){
+            members[msg.sender] = Members(_members);
+        }
 
+        //送金
+        function transfer(address _to, uint256 _value){
+            //不正送金チェック
+            if(balanceOf[msg.sender] < _value) throw;
+            if(balanceOf[_to] + _value < balanceOf[_to]) throw;
 
+            //ブラックリストに存在するアドレスには入出金不可
+            if(blackList[msg.sender] > 0){
+                RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
+            }else if (blackList[_to] > 0){
+                RejectedpaymentToBlacklistedAddr(msg.sender, _to, _value);
+            }else{
+                //キャッシュバックの額を計算
+                uint256 cashback = 0;
+                if(members[_to] > address(0)){
+                    cashback = _value / 100*uint256(members[_to].getCashbackRate(msg.sender));
+                    members[_to].updateHistory(msg.sender, _value);
+                }
 
+                balanceOf[msg.sender] -= (_value - cashback);
+                balanceOf[_to] += (_value - cashback);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function setMembers(Members _members){
-        members[msg.sender] = Members(_members);
-    }
-
-    //送金
-    function transfer(address _to, uint256 _value){
-        //不正送金チェック
-        if(balanceOf[msg.sender] < _value) throw;
-        if(balanceOf[_to] + _value < balanceOf[_to]) throw;
-
-        //ブラックリストに存在するアドレスは入出金不可
-        if(blackList[msg.sender] > 0{
-            RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
+                Transfer(msg.sender, _to, _value);
+                Cashback(_to, msg.sender, cashback);
+            }
         }
     }
-}
