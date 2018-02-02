@@ -1,0 +1,14 @@
+20のコントラクトの実行
+
+①コントラクトプログラムのビルド用data部を出力
+$ solc -o ./ --bin --optimize ファイル.sol
+$ cat keyValueStore.bin
+
+②コントラクト情報を取得する
+$ solc --abi ファイル.sol
+======= 20.文字格納コントラクト.sol:keyValueStore =======
+Contract JSON ABI
+[{"constant":true,"inputs":[{"name":"_key","type":"uint256"}],"name":"getValue1","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_key","type":"uint256"}],"name":"getvalue2","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_value1","type":"string"},{"name":"_value2","type":"string"}],"name":"setValue","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]
+
+③gethを起動する
+$ geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/
