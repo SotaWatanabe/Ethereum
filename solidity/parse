@@ -1,0 +1,10 @@
+//solidity parser
+//Library
+npm install solidity-parser
+
+var SolidityParser = require("solidity-parser");
+
+//parse solidity code as a string
+var result = SolidityParser.parse("contract{.....}");
+//or
+var result = SolidityParser.parseFile("./path/to/file.sol");
