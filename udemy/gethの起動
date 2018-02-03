@@ -1,0 +1,13 @@
+gethの起動の仕方
+
+①ターミナルを2つ開く
+②片方でgethを起動
+③もう片方で、geth attach ipc:/path/to/geth/ipc
+geth attach ipc:/Users/watanabesouta/Library/Ethereum/geth.ipc
+
+アカウントの作成
+> personal.newAccount();
+private keyはkeystore内に蓄積される
+
+ここにAPIとか載っている
+https://github.com/ethereum/go-ethereum
