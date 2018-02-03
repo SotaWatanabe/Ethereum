@@ -1,0 +1,59 @@
+genesis.jsonを同じディレクトリー内に保存
+$ geth init genesis.json --datadir mychaindata
+
+--nodiscoverは他のchainIdに接続してしまうことを辞める
+$ geth --datadir mychaindata --nodiscover
+
+$ geth --datadir mychaindata --nodiscoverをした後に、もう一つのコンソールを開く
+$ geth attach ipc:/Users/watanabesouta/desktop/blockchain/Ethereum.git/udemy/mychaindata/geth.ipc
+を入力するとjavascriptモードで表示される。
+
+アカウントの作成
+> eth.accounts
+[]
+
+ファンクションの確認
+> personal
+{
+  listAccounts: [],
+  listWallets: [],
+  deriveAccount: function(),
+  ecRecover: function(),
+  getListAccounts: function(callback),
+  getListWallets: function(callback),
+  importRawKey: function(),
+  lockAccount: function(),
+  newAccount: function github.com/ethereum/go-ethereum/console.(*bridge).NewAccount-fm(),
+  openWallet: function github.com/ethereum/go-ethereum/console.(*bridge).OpenWallet-fm(),
+  sendTransaction: function(),
+  sign: function github.com/ethereum/go-ethereum/console.(*bridge).Sign-fm(),
+  unlockAccount: function github.com/ethereum/go-ethereum/console.(*bridge).UnlockAccount-fm()
+}
+
+アカウントの作成
+> personal.newAccount();
+Passphrase:
+Repeat passphrase:
+"0xb281a37a54b17e5f825e9b952768a6351181e1c3"
+
+> eth.accounts
+["0xb281a37a54b17e5f825e9b952768a6351181e1c3"]
+
+coinbaseはマイニングした時に溜まるアカウント
+> eth.coinbase
+"0xb281a37a54b17e5f825e9b952768a6351181e1c3"
+
+> miner
+{
+  getHashrate: function(),
+  setEtherbase: function(),
+  setExtra: function(),
+  setGasPrice: function(),
+  start: function(),
+  stop: function()
+}
+
+マイニングするアカウントを指定
+> miner.setEtherbase(eth.accounts[0])
+true
+> miner.start(1)
