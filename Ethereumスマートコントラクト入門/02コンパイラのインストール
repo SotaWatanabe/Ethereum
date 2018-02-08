@@ -11,3 +11,13 @@ $ cmake .. && make
 $ make install
 $ solc --version
 $ which solc
+
+gethを起動してコンソールに接続
+$ geth --datadir /Users/me/ehtereum_private init /Users/me/ehtereum_private/Genesis.json
+$ geth --networkid "10" --nodiscover --datadir /Users/me/ehtereum_private console 2>>/Users/me/ehtereum_private/geth_err.log
+
+もしくは
+nohup geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/eth/data_testnet --mine --minerthreads 1 --rpc --rpcaddr "0.0.0.0" --rpcport 8545 --rpccorsdomain "*" --rpcapi "admin,db,eth,debug,miner,net,shh,txpool,personal,web3" --unlock 0,1 --password /home/eth/data_testnet/passwd --verbosity 6 2>> /home/eth/data_testnet/geth.log &
+
+solcのパスをセット
+> admin.setSolc("/usr/local/bin/solc")
