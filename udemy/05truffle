@@ -1,0 +1,14 @@
+truffleのinit
+$ truffle init
+
+unboxをダウンロード
+$ truffle unbox webpack
+
+truffleデベロッパーコンソールを開く
+$ truffle develop
+
+$ compile
+
+$ migrate
+
+$ test
