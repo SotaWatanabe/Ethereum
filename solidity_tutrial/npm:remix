@@ -1,0 +1,15 @@
+Remix
+
+Remixには2種類ある。1つはオンラインで完結。もう1つはダウンロードしてオフラインで完結する
+両者の機能は一緒
+http://remix.ethereum.org/#optimize=false&version=soljson-v0.4.21+commit.dfe3193c.js
+
+
+npm
+
+npmでコンパイラーsolcjsをインストールする
+https://github.com/ethereum/solc-js
+solcをインストールする
+npm install solc
+仕様を見る
+solcjs --help
