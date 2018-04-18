@@ -1,0 +1,4 @@
+solidityにはprivate、publicの他に、internalとexternalがある。
+
+internalはprivateと同じものだが、継承したコントラクトからもアクセスが可能になる。
+externalはpublicと同じだが、コントラクトの外からだけ呼び出すことができる。コントラクトの内部の別の関数から呼び出すことはできない。
