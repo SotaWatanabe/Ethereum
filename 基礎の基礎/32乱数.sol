@@ -13,3 +13,10 @@ uint random2 = uint(keccak256(now, msg.sender, randNonce)) % 100;
 //対応策のスレッド
 //https://ethereum.stackexchange.com/questions/191/how-can-i-securely-generate-a-random-number-in-my-smart-contract
 //oracleが安全な乱数生成になる？
+ontract ZombieBattle is ZombieHelper {
+  uint randNonce = 0;
+  function randMod(uint _modulus) internal returns(uint) {
+    randNonce++;
+    return uint(keccak256(now, msg.sender, randNonce)) % _modulus;
+  }
+}
