@@ -1,0 +1,5 @@
+assertとrequireの違い
+assertはrequireと同じようなものだが、偽の場合はエラーを投げる。
+assertとrequireの違いは、requireは関数呼び出しが失敗した場合にユーザーにガスの残りを返却するが、このときassertはそうしない。
+
+コード中ではほとんどrequireを使う。
