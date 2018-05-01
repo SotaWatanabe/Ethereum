@@ -1,0 +1,58 @@
+//infura
+//高速な読み込みのためのキャッシュレイヤーをもつイーサリアム・ノードのセットを保持するサービスで、API経由でこれらノードに無料でアクセスで可能。
+//Infuraをプロバイダとして使用することで、自分のノードをセットアップして維持しなくても、イーサリアムブロックチェーンとメッセージをしっかりと送受信できる。
+
+//infuraをWeb3プロバイダとして使うには以下のようにWeb3をセットアップする。
+
+//ユーザーがMetamaskをインストール済みかを検出し、インストールしていなければアプリを使用するためにMetamaskのインストールが必要だと伝えるもの
+var web3 = new Web3(new Web3.providers.WebsocketProvider("wss://mainnet.infura.io/ws"));
+
+//Metamaskが提供するテンプレートコード
+window.addEventListener('load', function() {
+
+  // Web3がブラウザにインジェクトされているかチェック (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Mist/MetaMaskのプロバイダの使用
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    // ユーザーがweb3を持たない場合の対処。
+    // アプリを使用するためにMetamaskをインストールするよう
+    // 伝えるメッセージを表示。
+  }
+
+  // アプリのスタート＆Web3.jsへの自由なアクセスが可能に:
+  startApp()
+
+})
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CryptoZombies front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+      window.addEventListener('load', function() {
+
+  // Web3がブラウザにインジェクトされているかチェック (Mist/MetaMask)
+  if (typeof web3 !== 'undefined') {
+    // Mist/MetaMaskのプロバイダの使用
+    web3js = new Web3(web3.currentProvider);
+  } else {
+    // ユーザーがweb3を持たない場合の対処。
+    // アプリを使用するためにMetamaskをインストールするよう
+    // 伝えるメッセージを表示。
+  }
+
+  // アプリのスタート＆Web3.jsへの自由なアクセスが可能に:
+  startApp()
+
+})
+    </script>
+  </body>
+</html>
