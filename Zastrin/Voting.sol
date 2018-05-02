@@ -12,10 +12,10 @@ contract Voting {
         candidateList = candidateNames;
     }
 
-    function totalVotesFor(bytes32 candidate) view public return (uint8) {
-        require(validCandidate(candidate));
-        return votesReceived[candidate];
-    }
+    function totalVotesFor(bytes32 candidate) view public returns (uint8) {
+    require(validCandidate(candidate));
+    return votesReceived[candidate];
+  }
 
     function voteForCandidate(bytes32 candidate) public {
         require(validCandidate(candidate));
