@@ -1,0 +1,14 @@
+//struct
+//struct allows us to create a new type with predefined properties.
+//here is the example of how struct work
+
+struct Person{
+    string name;
+    uint age;
+    bool lovesMeta;
+}
+
+Person author;
+author.name = "AsifMallik"
+author.age = 19;
+author.loveMeta = true;
