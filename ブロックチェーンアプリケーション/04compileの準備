@@ -1,0 +1,12 @@
+コンパイルの準備
+
+コンパイルをする際に、コントラクトから改行を取り除くことが必要。
+
+$ vi HelloWorldOrg.sol
+$ cat HelloWorldOrg.sol | tr -d '\n' > HelloWorld.sol
+$ cat HelloWorld.sol
+
+コンパイル
+$ geth attach rpc:http://localhost:8545
+> source = ..........(cat HelloWorld.solででてきたやつ)
+> sourceCompiled = eth.compile.solidity(source) 
