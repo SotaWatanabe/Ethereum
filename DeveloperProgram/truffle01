@@ -1,0 +1,13 @@
+truffle
+
+truffleでできること
+1. smart contract compilation
+2. library linking
+3. contact testing
+4. transaction debugging
+5. deployment
+6. front end deployment
+http://truffleframework.com/
+
+$ npm install -g ganache-cli
+$ npm install -g truffle
