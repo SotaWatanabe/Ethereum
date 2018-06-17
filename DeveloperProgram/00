@@ -1,0 +1,4 @@
+geth --dev console
+
+> eth.accounts[0]
+> eth.getBalance(eth.account[0])

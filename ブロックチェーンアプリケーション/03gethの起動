@@ -1,0 +1,15 @@
+//testnetでgethを起動する
+・データディレクトリ
+・genesisファイルが必要
+
+$ make /data_testnet
+$ cd data_testnet
+
+$ vi genesis.json
+//genesis.jsonを書く
+
+//gethの初期化
+$ geth --datadir /home/desktop/.../data_testnet init /home/desktop..../data_testnet/genesis.json
+
+//gethの起動
+$ geth --networkid 4649 --nodiscover --maxpeers 0 --datadir /home/desktop/.../data_testnet console 2>> /home/desktop/.../data_testnet/geth.log

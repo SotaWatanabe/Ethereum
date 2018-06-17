@@ -1,0 +1,7 @@
+$ sudo npm install -g ganache-cli
+$ ganache-cli
+
+100ethが入った秘密鍵10個が作成される。
+RemixとMetamaskと連携ができる。
+
+metamaskはニューモリックを入れて起動する。その後ローカルホストに連結。

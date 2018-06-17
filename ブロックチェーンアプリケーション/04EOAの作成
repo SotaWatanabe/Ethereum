@@ -1,0 +1,13 @@
+//gethのコンソールで、personal.newAccountコマンドを実行してEOAを作成する
+> personal.newAccount("pass")
+"0x46d61........."
+
+//"pass"はアカウントのパスフレーズ
+//EOAの確認はeth.accountsコマンドで行う。
+> eth.accounts
+
+//[1][0]をつけることで指定したアカウントのアドレスを表示できる
+> eth.account[0]
+
+//gethコンソールを終了する
+> exit
